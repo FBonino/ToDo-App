@@ -7,6 +7,7 @@ require (
 	github.com/gin-gonic/gin v1.9.0
 	github.com/spf13/viper v1.15.0
 	go.mongodb.org/mongo-driver v1.11.2
+	nullprogram.com/x/uuid v1.2.1
 )
 
 require (
@@ -52,4 +53,5 @@ require (
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
+	nullprogram.com/x/isaac64 v1.0.0 // indirect
 )
