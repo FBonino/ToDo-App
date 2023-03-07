@@ -8,7 +8,6 @@ type ToDo struct {
 	Description string    `json:"description" bson:"description"`
 	Priority    uint8     `json:"priority" bson:"priority"`
 	State       uint8     `json:"state" bson:"state"`
-	Done        bool      `json:"done" bson:"done"`
 	CreatedAt   time.Time `json:"created_at" bson:"created_at"`
 	UpdatedAt   time.Time `json:"updated_at" bson:"updated_at"`
 }
@@ -24,5 +23,4 @@ type ToDoUpdate struct {
 	Description string `json:"description,omitempty" bson:"description"`
 	Priority    uint8  `json:"priority,omitempty" bson:"priority"`
 	State       uint8  `json:"state,omitempty" bson:"state"`
-	Done        bool   `json:"done,omitempty" bson:"done"`
 }

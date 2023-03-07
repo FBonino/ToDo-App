@@ -21,7 +21,6 @@ func ToDoCreate(input *models.ToDoCreate) (*models.ToDo, error) {
 		Description: input.Description,
 		Priority:    input.Priority,
 		State:       1,
-		Done:        false,
 		CreatedAt:   now,
 		UpdatedAt:   now,
 	}
@@ -56,7 +55,6 @@ func ToDoUpdate(id string, input *models.ToDoUpdate) (*models.ToDo, error) {
 			"description": input.Description,
 			"priority":    input.Priority,
 			"state":       input.State,
-			"done":        input.Done,
 			"updated_at":  time.Now(),
 		},
 	}
