@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { todosAPI } from "../../apis/todosAPI";
-import Loader from "../loader/Loader";
 import ToDo from "../todo/ToDo";
 import style from "./ToDos.module.css";
 
-const ToDos = () => {
-    const [toDos, setToDos] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
-
-    useEffect(() => {
-        todosAPI.getToDos()
-            .then(data => setToDos(data))
-            .catch(err => console.log(err))
-            .finally(() => setIsLoading(false))
-    }, [])
+const ToDos = ({ toDos, setToDos }) => {
+    const deleteToDo = async id => {
+        try {
+            await todosAPI.deleteToDo(id)
+            setToDos(toDos.filter(toDo => toDo.id !== id))
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
     return (
         <div className={style.container}>
             {
-                isLoading
-                    ? <Loader />
-                    : toDos.map(({ id, title, description, priority, state }) => <ToDo key={id} title={title} description={description} priority={priority} state={state} />)
+                toDos.length && toDos.map(({ id, title, description, priority, state }) => {
+                    return (
+                        <ToDo key={id} title={title} description={description} priority={priority} state={state} deleteToDo={() => deleteToDo(id)} />
+                    )
+                })
             }
         </div>
     )

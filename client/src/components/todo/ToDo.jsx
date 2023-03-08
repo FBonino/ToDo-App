@@ -1,7 +1,8 @@
 import React from "react";
 import style from "./ToDo.module.css";
+import { MdDelete } from "react-icons/md";
 
-const ToDo = ({ title, description, priority, state }) => {
+const ToDo = ({ title, description, priority, state, deleteToDo }) => {
     const states = {
         1: "New",
         2: "Doing",
@@ -10,11 +11,13 @@ const ToDo = ({ title, description, priority, state }) => {
 
     return (
         <div className={style.container}>
-            <h2> {title} </h2>
+            <div className={style.subcontainer}>
+                <h2> {title} </h2>
+                <button className={style.delete} onClick={deleteToDo}> <MdDelete size={32} /> </button>
+            </div>
             <p> {description} </p>
             <p> Priority {priority}/10 </p>
             <p> State: {states[state]} </p>
-            <button>  </button>
         </div>
     )
 }
