@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1rem;
+    width: 15rem;
+    height: 15rem;
+    border: 1px solid var(--secondary-color);
+}
+
+.container+.container {
+    margin-left: 1rem;
+}
