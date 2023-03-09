@@ -12,12 +12,14 @@ const ToDo = ({ title, description, priority, state, deleteToDo }) => {
     return (
         <div className={style.container}>
             <div className={style.subcontainer}>
-                <h2> {title} </h2>
-                <button className={style.delete} onClick={deleteToDo}> <MdDelete size={32} /> </button>
+                <h3 className={style.text}> {title} </h3>
+                <button className={style.delete} onClick={deleteToDo}> <MdDelete size={24} /> </button>
             </div>
-            <p> {description} </p>
-            <p> Priority {priority}/10 </p>
-            <p> State: {states[state]} </p>
+            <p className={`${style.text} ${style.description}`}> {description} </p>
+            <div className={style.info}>
+                <p className={style.text}> Priority {priority}/10 </p>
+                <p className={style.text}> State: {states[state]} </p>
+            </div>
         </div>
     )
 }

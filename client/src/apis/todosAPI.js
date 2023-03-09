@@ -1,14 +1,14 @@
 import api from "./config"
 
 export const todosAPI = {
-    createToDo: async input => {
+    createToDo: async ({ priority, ...input }) => {
         const { data } = await api.request({
             url: "/todo",
             method: "POST",
-            data: input
+            data: { ...input, priority: +priority }
         })
 
-        return data
+        return data.ToDo
     },
     updateToDo: async (id, input) => {
         const { data } = await api.request({
