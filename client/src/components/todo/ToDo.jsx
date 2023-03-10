@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./ToDo.module.css";
 import { MdDelete } from "react-icons/md";
 
-const ToDo = ({ title, description, priority, state, deleteToDo }) => {
+const ToDo = ({ title, description, priority, state, deleteToDo, openDetail }) => {
     return (
-        <div className={style.container}>
+        <div className={style.container} onClick={openDetail}>
             <div className={style.subcontainer}>
                 <h3 className={style.text}> {title} </h3>
                 <button className={style.delete} onClick={deleteToDo}> <MdDelete size={24} /> </button>

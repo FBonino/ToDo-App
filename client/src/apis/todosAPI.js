@@ -10,14 +10,14 @@ export const todosAPI = {
 
         return data.ToDo
     },
-    updateToDo: async (id, input) => {
+    updateToDo: async (id, { priority, state, ...input }) => {
         const { data } = await api.request({
             url: `/todo/${id}`,
             method: "PUT",
-            data: input
+            data: { ...input, priority: +priority, state: +state }
         })
 
-        return data
+        return data.ToDo
     },
     deleteToDo: async id => {
         const { data } = await api.request({
