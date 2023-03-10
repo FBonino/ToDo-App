@@ -1,7 +1,6 @@
 package services
 
 import (
-	"fmt"
 	"server/db"
 	"server/models"
 	"time"
@@ -25,8 +24,6 @@ func ToDoCreate(input *models.ToDoCreate) (*models.ToDo, error) {
 		CreatedAt:   now,
 		UpdatedAt:   now,
 	}
-
-	fmt.Println(input, newToDo)
 
 	todosCollection := db.GetCollection("todos")
 
