@@ -4,7 +4,15 @@ import NewToDo from "../new-todo/NewToDo";
 import ToDo from "../todo/ToDo";
 import style from "./ToDos.module.css";
 
+
+
 const ToDos = ({ toDos, setToDos }) => {
+    const states = {
+        1: "New",
+        2: "Doing",
+        3: "Done",
+    }
+
     const createToDo = async input => {
         try {
             const newToDo = await todosAPI.createToDo(input)
@@ -26,13 +34,26 @@ const ToDos = ({ toDos, setToDos }) => {
     return (
         <div className={style.container}>
             {
-                toDos.length && toDos.map(({ id, title, description, priority, state }) => {
+                Object.keys(states).map(state => {
                     return (
-                        <ToDo key={id} title={title} description={description} priority={priority} state={state} deleteToDo={() => deleteToDo(id)} />
+                        <div className={style.column} key={state}>
+                            <p className={style.title}> {states[state]} </p>
+                            <div className={style.todos}>
+                                {
+                                    toDos.filter(todo => +state === todo.state).map(({ id, title, description, priority, state }) => {
+                                        return (
+                                            <ToDo key={id} title={title} description={description} priority={priority} state={states[state]} deleteToDo={() => deleteToDo(id)} />
+                                        )
+                                    })
+                                }
+                                {
+                                    states[state] === "New" && <NewToDo createToDo={createToDo} />
+                                }
+                            </div>
+                        </div>
                     )
                 })
             }
-            <NewToDo createToDo={createToDo} />
         </div>
     )
 }

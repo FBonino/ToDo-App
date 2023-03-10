@@ -22,13 +22,16 @@ const NewToDo = ({ createToDo }) => {
                 !isCreating
                     ? <div className={style.plus} onClick={() => setIsCreating(true)}> <MdAdd size={96} /> </div>
                     : <form onSubmit={handleSubmit} className={style.form} autoComplete="off">
-                        <input name="title" className={style.input} onChange={handleChange} />
-                        <textarea name="description" className={style.input} onChange={handleChange} rows="5" />
-                        <select onChange={handleChange} name="priority">
-                            {
-                                [...Array(10)].map((_, i) => <option key={i} value={i + 1}> {i + 1} </option>)
-                            }
-                        </select>
+                        <input name="title" className={style.input} onChange={handleChange} placeholder="Title..." />
+                        <textarea name="description" className={style.input} onChange={handleChange} rows="5" placeholder="Description..." />
+                        <div className={style.priority}>
+                            <label htmlFor="priority"> Priority </label>
+                            <select onChange={handleChange} name="priority">
+                                {
+                                    [...Array(10)].map((_, i) => <option key={i} value={i + 1}> {i + 1} </option>)
+                                }
+                            </select>
+                        </div>
                         <input type="submit" value="Create" />
                     </form>
             }

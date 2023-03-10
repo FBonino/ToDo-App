@@ -3,12 +3,6 @@ import style from "./ToDo.module.css";
 import { MdDelete } from "react-icons/md";
 
 const ToDo = ({ title, description, priority, state, deleteToDo }) => {
-    const states = {
-        1: "New",
-        2: "Doing",
-        3: "Done",
-    }
-
     return (
         <div className={style.container}>
             <div className={style.subcontainer}>
@@ -18,7 +12,7 @@ const ToDo = ({ title, description, priority, state, deleteToDo }) => {
             <p className={`${style.text} ${style.description}`}> {description} </p>
             <div className={style.info}>
                 <p className={style.text}> Priority {priority}/10 </p>
-                <p className={style.text}> State: {states[state]} </p>
+                <p className={style.text}> State: {state} </p>
             </div>
         </div>
     )
