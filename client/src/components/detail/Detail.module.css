@@ -23,9 +23,48 @@
   background-color: var(--main-bg-color);
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
 .subcontainer {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.button {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  background-color: var(--primary-color);
+  color: var(--main-font-color);
+  border: 1px solid black;
+  transition: 300ms;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.button:hover {
+  cursor: pointer;
+  filter: brightness(1.2);
+}
+
+.input {
+  resize: none;
+  padding: 0.25rem;
+  border-radius: 0.2rem;
+}
+
+.select {
+  padding: 0.25rem;
+  border-radius: 0.2rem;
 }
