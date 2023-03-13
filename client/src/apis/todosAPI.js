@@ -33,6 +33,6 @@ export const todosAPI = {
             method: "GET"
         })
 
-        return data.ToDos
+        return data.ToDos ?? []
     }
 }
