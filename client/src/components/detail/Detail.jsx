@@ -35,7 +35,7 @@ const Detail = ({ detail, setDetail, showDetail, handleClose, updateToDo }) => {
           </div>
           <div className={style.subcontainer}>
             <label htmlFor="description"> Description </label>
-            <textarea className={style.input} name="description" onChange={handleChange} value={detail.description} rows="10" cols="45" readOnly={!isEditing} />
+            <textarea className={style.input} name="description" onChange={handleChange} value={detail.description} rows="8" cols="45" readOnly={!isEditing} />
           </div>
           <div className={style.subcontainer}>
             <label htmlFor="priority"> Priority </label>

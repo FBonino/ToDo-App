@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ToDos from "../../components/todos/ToDos";
-import Filters from "../../components/filters/Filters";
 import style from "./Home.module.css";
 import { todosAPI } from "../../apis/todosAPI";
 import Loader from "../../components/loader/Loader";
@@ -18,7 +17,9 @@ const Home = () => {
 
     return (
         <div className={style.container}>
-            <Filters />
+            <div className={style.title}>
+                <h2> ToDo App </h2>
+            </div>
             {
                 isLoading
                     ? <Loader />

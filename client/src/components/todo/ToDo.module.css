@@ -1,24 +1,31 @@
 .container {
+    position: relative;
+}
+
+.subcontainer {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     padding: 0 0.5rem;
-    width: 18rem;
-    min-height: 8rem;
-    max-height: 8rem;
+    width: 20rem;
+    min-height: 10rem;
+    max-height: 10rem;
     border: 1px solid var(--secondary-color);
     margin: 0.5rem 0;
     border-radius: 0.5rem;
+    transition: 300ms;
 }
 
-.subcontainer {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.subcontainer:hover {
+    cursor: pointer;
+    background-color: #163a63;
 }
 
 .delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
     width: fit-content;
     padding: 0.3rem;
     border-radius: 50%;
@@ -29,9 +36,16 @@
 }
 
 .delete:hover {
-    background-color: var(--primary-color);
+    background-color: red;
     filter: brightness(1.05);
     cursor: pointer;
+}
+
+.title {
+    width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .description {

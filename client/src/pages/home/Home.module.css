@@ -5,3 +5,8 @@
     color: var(--main-font-color);
     background-color: var(--main-bg-color);
 }
+
+.title {
+    padding: 0 2rem;
+    background-color: var(--primary-color);
+}
