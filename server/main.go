@@ -29,7 +29,6 @@ func main() {
 		ctx.JSON(http.StatusOK, gin.H{"status": "success", "message": "ok"})
 	})
 
-	// Routes
 	routes.ToDoRoutes(router)
 
 	log.Fatal(server.Run(":" + config.Port))
