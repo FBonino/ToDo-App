@@ -57,7 +57,7 @@ const ToDos = ({ toDos, setToDos }) => {
 							<p className={style.title}> {states[state]} </p>
 							<div className={style.todos}>
 								{
-									toDos.filter(todo => +state === todo.state).map(({ id, title, description, priority, state }) => {
+									toDos?.filter(todo => +state === todo.state).map(({ id, title, description, priority, state }) => {
 										return (
 											<ToDo
 												key={id}
